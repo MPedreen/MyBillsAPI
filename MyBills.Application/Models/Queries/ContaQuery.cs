@@ -1,8 +1,8 @@
 ﻿using MyBills.Domain.Models.Enums;
 
-namespace MyBills.Domain.Models
+namespace MyBills.Application.Models.Queries
 {
-    public class Conta
+    public class ContaQuery
     {
         public Guid Id { get; set; }
         public string Numero { get; set; }
@@ -10,5 +10,6 @@ namespace MyBills.Domain.Models
         public TipoContaEnum Tipo { get; set; }
         public bool EstaPaga { get; set; }
         public DateTime DataVencimento { get; set; }
+        public DateTime DataHoraCriacao { get; set; }
     }
 }
