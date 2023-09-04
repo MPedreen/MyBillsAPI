@@ -6,6 +6,9 @@ namespace MyBills.API.Controllers
     [ApiController]
     public class ContasController : ControllerBase
     {
-
+        [HttpPost]
+        [ProducesResponseType(201)]
+        public async Task<IActionResult> Post()
+            => StatusCode(201);
     }
 }
