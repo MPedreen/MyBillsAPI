@@ -6,10 +6,10 @@ namespace MyBills.Application.Interfaces.Services
     public interface IContaAppService
     {
         Task<ContaQuery> Create(ContaCreateCommand command);
-        Task<ContaQuery> Update(ContaCreateCommand command);
-        Task<ContaQuery> Delete(ContaCreateCommand command);
-        Task<ContaQuery> GetAll(ContaCreateCommand command);
-        Task<ContaQuery> GetAll();
-        Task<ContaQuery> GetById(Guid? id);
+        Task<ContaQuery> Update(ContaUpdateCommand command);
+        Task<ContaQuery> Delete(ContaDeleteCommand command);
+
+        //Task<ContaQuery> GetAll();
+        //Task<ContaQuery> GetById(Guid? id);
     }
 }

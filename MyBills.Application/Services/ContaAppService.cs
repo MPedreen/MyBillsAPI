@@ -1,10 +1,11 @@
 ﻿using MediatR;
+using MyBills.Application.Interfaces.Services;
 using MyBills.Application.Models.Commands;
 using MyBills.Application.Models.Queries;
 
 namespace MyBills.Application.Services
 {
-    public class ContaAppService
+    public class ContaAppService : IContaAppService
     {
         private readonly IMediator? _mediator;
 
