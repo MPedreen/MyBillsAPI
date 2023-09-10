@@ -19,6 +19,11 @@ namespace MyBills.API.Controllers
         [HttpPost]
         [ProducesResponseType(typeof(ContaQuery), 201)]
         public async Task<IActionResult> Post(ContaCreateCommand command)
-            => StatusCode(201, await _contaAppService?.Create(command));
+            => StatusCode(201, await _contaAppService.Create(command));
+
+        [HttpPut]
+        [ProducesResponseType(typeof(ContaQuery), 201)]
+        public async Task<IActionResult> Put(ContaUpdateCommand command)
+            => StatusCode(201, await _contaAppService.Update(command));
     }
 }
