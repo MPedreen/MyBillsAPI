@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyBills.Application.Interfaces.Services;
+using MyBills.Application.Models.Commands;
+using MyBills.Application.Models.Queries;
 
 namespace MyBills.API.Controllers
 {
@@ -6,9 +9,16 @@ namespace MyBills.API.Controllers
     [ApiController]
     public class ContasController : ControllerBase
     {
+        private readonly IContaAppService _contaAppService;
+
+        public ContasController(IContaAppService contaAppService)
+        {
+            _contaAppService = contaAppService;
+        }
+
         [HttpPost]
-        [ProducesResponseType(201)]
-        public async Task<IActionResult> Post()
-            => StatusCode(201);
+        [ProducesResponseType(typeof(ContaQuery), 201)]
+        public async Task<IActionResult> Post(ContaCreateCommand command)
+            => StatusCode(201, await _contaAppService?.Create(command));
     }
 }
