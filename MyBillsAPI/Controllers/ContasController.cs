@@ -33,5 +33,10 @@ namespace MyBills.API.Controllers
             var command = new ContaDeleteCommand { Id = id };
             return StatusCode(200, await _contaAppService.Delete(command));
         }
+
+        //[HttpGet]
+        //[ProducesResponseType(typeof(List<ContaQuery>), 200)]
+        //public IActionResult GetAll()
+        //    => StatusCode(200, _contaAppService.GetAll());
     }
 }

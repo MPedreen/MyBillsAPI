@@ -29,13 +29,11 @@ namespace MyBills.Application.Services
             return await _mediator.Send(command);
         }
 
-        // TODO
         //public List<ContaQuery> GetAll()
         //{
         //    return _produtoPersistence.GetAll();
         //}
 
-        // TODO
         //public ContaQuery GetById(Guid? id)
         //{
         //    return _produtoPersistence.GetById(id.Value);
