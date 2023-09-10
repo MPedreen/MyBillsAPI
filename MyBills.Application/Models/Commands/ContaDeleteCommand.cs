@@ -5,6 +5,6 @@ namespace MyBills.Application.Models.Commands
 {
     public class ContaDeleteCommand : IRequest<ContaQuery>
     {
-
+        public Guid? Id { get; set; }
     }
 }
