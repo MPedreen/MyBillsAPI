@@ -24,14 +24,14 @@ namespace MyBills.API.Controllers
         [HttpPut]
         [ProducesResponseType(typeof(ContaQuery), 201)]
         public async Task<IActionResult> Put(ContaUpdateCommand command)
-            => StatusCode(201, await _contaAppService.Update(command));
+            => StatusCode(200, await _contaAppService.Update(command));
 
         [HttpDelete]
         [ProducesResponseType(typeof(ContaQuery), 201)]
         public async Task<IActionResult> Delete(Guid? id)
         {
             var command = new ContaDeleteCommand { Id = id };
-            return StatusCode(201, await _contaAppService.Delete(command));
+            return StatusCode(200, await _contaAppService.Delete(command));
         }
     }
 }
