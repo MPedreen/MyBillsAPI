@@ -12,16 +12,16 @@ namespace MyBills.Application.Models.Commands
         [Required(ErrorMessage = "Campo obrigatório.")]
         public string Numero { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório")]
+        [Required(ErrorMessage = "Campo obrigatório.")]
         public decimal Valor { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório")]
+        [Required(ErrorMessage = "Campo obrigatório.")]
         public TipoContaEnum Tipo { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório")]
+        [Required(ErrorMessage = "Campo obrigatório.")]
         public bool EstaPaga { get; set; }
 
-        [Required(ErrorMessage = "Campo obrigatório")]
+        [Required(ErrorMessage = "Campo obrigatório.")]
         public DateTime DataVencimento { get; set; }
     }
 }
