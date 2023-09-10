@@ -3,7 +3,7 @@ using MyBills.Infra.Data.SqlServer.Contexts;
 
 namespace MyBills.Infra.Data.SqlServer.Repositories
 {
-    public abstract class BaseRepository<TModel, TKey> : IBaseRepository
+    public abstract class BaseRepository<TModel, TKey> : IBaseRepository<TModel, TKey>
         where TModel : class
     {
         private readonly DataContext _dataContext;
