@@ -9,7 +9,7 @@ namespace MyBills.Application.Interfaces.Services
         Task<ContaQuery> Update(ContaUpdateCommand command);
         Task<ContaQuery> Delete(ContaDeleteCommand command);
 
-        //Task<ContaQuery> GetAll();
-        //Task<ContaQuery> GetById(Guid? id);
+        List<ContaQuery> GetAll();
+        ContaQuery GetById(Guid? id);
     }
 }

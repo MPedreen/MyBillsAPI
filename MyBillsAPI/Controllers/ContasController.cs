@@ -26,7 +26,7 @@ namespace MyBills.API.Controllers
         public async Task<IActionResult> Put(ContaUpdateCommand command)
             => StatusCode(200, await _contaAppService.Update(command));
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         [ProducesResponseType(typeof(ContaQuery), 200)]
         public async Task<IActionResult> Delete(Guid? id)
         {
@@ -34,9 +34,14 @@ namespace MyBills.API.Controllers
             return StatusCode(200, await _contaAppService.Delete(command));
         }
 
-        //[HttpGet]
-        //[ProducesResponseType(typeof(List<ContaQuery>), 200)]
-        //public IActionResult GetAll()
-        //    => StatusCode(200, _contaAppService.GetAll());
+        [HttpGet]
+        [ProducesResponseType(typeof(List<ContaQuery>), 200)]
+        public IActionResult GetAll()
+            => StatusCode(200, _contaAppService.GetAll());
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ContaQuery), 200)]
+        public IActionResult GetById(Guid? id)
+            => StatusCode(200, _contaAppService.GetById(id));
     }
 }
