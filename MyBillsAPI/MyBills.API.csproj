@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
+    <ProjectReference Include="..\MyBills.Application\MyBills.Application.csproj" />
+    <ProjectReference Include="..\MyBills.Infra.Data.SqlServer\MyBills.Infra.Data.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>
