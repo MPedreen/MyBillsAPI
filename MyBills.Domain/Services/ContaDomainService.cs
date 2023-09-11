@@ -32,9 +32,7 @@ namespace MyBills.Domain.Services
         }
 
         public List<Conta> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+            => _unitOfWork.ContaRepository.GetAll();
 
         public Conta GetById(Guid id)
         {
