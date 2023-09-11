@@ -2,6 +2,7 @@
 using MediatR;
 using MyBills.Application.Models.Commands;
 using MyBills.Application.Models.Queries;
+using MyBills.Domain.Interfaces.Services;
 
 namespace MyBills.Application.Handlers.Requests
 {
@@ -13,7 +14,14 @@ namespace MyBills.Application.Handlers.Requests
 
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-        //private readonly IContaDomainService _contaDomainService;
+        private readonly IContaDomainService _contaDomainService;
+
+        public ContaRequestHandler(IMediator mediator, IMapper mapper, IContaDomainService contaDomainService)
+        {
+            _mediator = mediator;
+            _mapper = mapper;
+            _contaDomainService = contaDomainService;
+        }
 
         public Task<ContaQuery> Handle(ContaCreateCommand request, CancellationToken cancellationToken)
         {

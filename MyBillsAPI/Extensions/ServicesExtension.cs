@@ -1,5 +1,4 @@
-﻿using MyBills.Application.Interfaces.Persistences;
-using MyBills.Application.Interfaces.Services;
+﻿using MyBills.Application.Interfaces.Services;
 using MyBills.Application.Services;
 using MyBills.Domain.Interfaces.Repositories;
 using MyBills.Domain.Interfaces.Services;
