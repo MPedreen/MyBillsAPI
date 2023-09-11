@@ -10,7 +10,7 @@ namespace MyBills.Infra.Data.SqlServer.Configurations
         {
             builder.HasKey(key => key.Id);
             builder.Property(prop => prop.Numero).HasMaxLength(20).IsRequired();
-            builder.Property(prop => prop.Valor).IsRequired();
+            builder.Property(prop => prop.Valor).HasColumnType("decimal").IsRequired();
             builder.Property(prop => prop.Tipo).IsRequired();
             builder.Property(prop => prop.EstaPaga).IsRequired();
             builder.Property(prop => prop.DataVencimento).IsRequired();
