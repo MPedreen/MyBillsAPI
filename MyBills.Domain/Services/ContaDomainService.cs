@@ -38,8 +38,6 @@ namespace MyBills.Domain.Services
             => _unitOfWork.ContaRepository.GetById(id);
 
         public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+            => _unitOfWork.Dispose();
     }
 }
