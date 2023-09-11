@@ -35,9 +35,7 @@ namespace MyBills.Domain.Services
             => _unitOfWork.ContaRepository.GetAll();
 
         public Conta GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+            => _unitOfWork.ContaRepository.GetById(id);
 
         public void Dispose()
         {
