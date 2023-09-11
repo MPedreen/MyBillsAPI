@@ -15,7 +15,8 @@ namespace MyBills.Domain.Services
 
         public void Add(Conta model)
         {
-            throw new NotImplementedException();
+            _unitOfWork.ContaRepository.Add(model);
+            _unitOfWork.SaveChanges();
         }
 
         public void Delete(Conta model)
