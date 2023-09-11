@@ -27,7 +27,8 @@ namespace MyBills.Domain.Services
 
         public void Delete(Conta model)
         {
-            throw new NotImplementedException();
+            _unitOfWork.ContaRepository.Delete(model);
+            _unitOfWork.SaveChanges();
         }
 
         public List<Conta> GetAll()
