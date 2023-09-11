@@ -7,6 +7,6 @@
         void Update(TModel model);
         void Delete(TModel model);
         List<TModel> GetAll();
-        TModel? GetById(TKey id);
+        TModel GetById(TKey id);
     }
 }

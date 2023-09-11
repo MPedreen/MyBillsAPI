@@ -1,6 +1,8 @@
-﻿namespace MyBills.Domain.Interfaces.Services
+﻿using MyBills.Domain.Models;
+
+namespace MyBills.Domain.Interfaces.Services
 {
-    public class IContaDomainService : IBaseDomainService<Conta, Guid>
+    public interface IContaDomainService : IBaseDomainService<Conta, Guid>
     {
 
     }
