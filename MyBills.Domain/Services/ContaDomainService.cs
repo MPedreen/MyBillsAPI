@@ -19,12 +19,13 @@ namespace MyBills.Domain.Services
             _unitOfWork.SaveChanges();
         }
 
-        public void Delete(Conta model)
+        public void Update(Conta model)
         {
-            throw new NotImplementedException();
+            _unitOfWork.ContaRepository.Update(model);
+            _unitOfWork.SaveChanges();
         }
 
-        public void Dispose()
+        public void Delete(Conta model)
         {
             throw new NotImplementedException();
         }
@@ -39,7 +40,7 @@ namespace MyBills.Domain.Services
             throw new NotImplementedException();
         }
 
-        public void Update(Conta model)
+        public void Dispose()
         {
             throw new NotImplementedException();
         }
