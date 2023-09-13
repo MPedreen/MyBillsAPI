@@ -53,6 +53,12 @@ namespace MyBills.Application.Handlers.Requests
             _contaDomainService.Update(conta);
 
             var contaQuery = _mapper.Map<ContaQuery>(conta);
+            await _mediator.Publish(
+                new ContaNotification
+                {
+                    Action = ActionNotificationEnum.Update,
+                    Conta = contaQuery
+                });
 
             return contaQuery;
         }
