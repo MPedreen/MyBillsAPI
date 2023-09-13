@@ -3,6 +3,7 @@ using MediatR;
 using MyBills.Application.Models.Commands;
 using MyBills.Application.Models.Queries;
 using MyBills.Domain.Interfaces.Services;
+using MyBills.Domain.Models;
 
 namespace MyBills.Application.Handlers.Requests
 {
@@ -23,17 +24,22 @@ namespace MyBills.Application.Handlers.Requests
             _contaDomainService = contaDomainService;
         }
 
-        public Task<ContaQuery> Handle(ContaCreateCommand request, CancellationToken cancellationToken)
+        public async Task<ContaQuery> Handle(ContaCreateCommand request, CancellationToken cancellationToken)
+        {
+            var conta = _mapper.Map<Conta>(request);
+            _contaDomainService.Add(conta);
+
+            var contaQuery = _mapper.Map<ContaQuery>(conta);
+
+            return contaQuery;
+        }
+
+        public Task<ContaQuery> Handle(ContaUpdateCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
         public Task<ContaQuery> Handle(ContaDeleteCommand request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ContaQuery> Handle(ContaUpdateCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
