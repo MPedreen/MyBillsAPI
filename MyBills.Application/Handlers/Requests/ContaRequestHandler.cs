@@ -53,7 +53,12 @@ namespace MyBills.Application.Handlers.Requests
 
         public async Task<ContaQuery> Handle(ContaDeleteCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var conta = _contaDomainService.GetById(request.Id.Value);
+            _contaDomainService.Delete(conta);
+
+            var contaQuery = _mapper.Map<ContaQuery>(conta);
+
+            return contaQuery;
         }
     }
 }
