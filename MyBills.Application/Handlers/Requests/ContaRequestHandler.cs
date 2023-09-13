@@ -2,9 +2,9 @@
 using MediatR;
 using MyBills.Application.Models.Commands;
 using MyBills.Application.Models.Queries;
+using MyBills.Application.Notifications;
 using MyBills.Domain.Interfaces.Services;
 using MyBills.Domain.Models;
-using System.ComponentModel.DataAnnotations;
 
 namespace MyBills.Application.Handlers.Requests
 {
@@ -31,6 +31,12 @@ namespace MyBills.Application.Handlers.Requests
             _contaDomainService.Add(conta);
 
             var contaQuery = _mapper.Map<ContaQuery>(conta);
+            await _mediator.Publish(
+                new ContaNotification
+                {
+                    Action = ActionNotificationEnum.Create,
+                    Conta = contaQuery
+                });
 
             return contaQuery;
         }
