@@ -69,6 +69,12 @@ namespace MyBills.Application.Handlers.Requests
             _contaDomainService.Delete(conta);
 
             var contaQuery = _mapper.Map<ContaQuery>(conta);
+            await _mediator.Publish(
+                new ContaNotification
+                {
+                    Action = ActionNotificationEnum.Delete,
+                    Conta = contaQuery
+                });
 
             return contaQuery;
         }
