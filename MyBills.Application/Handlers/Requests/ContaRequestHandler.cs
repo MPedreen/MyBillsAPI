@@ -4,6 +4,7 @@ using MyBills.Application.Models.Commands;
 using MyBills.Application.Models.Queries;
 using MyBills.Domain.Interfaces.Services;
 using MyBills.Domain.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyBills.Application.Handlers.Requests
 {
@@ -34,12 +35,23 @@ namespace MyBills.Application.Handlers.Requests
             return contaQuery;
         }
 
-        public Task<ContaQuery> Handle(ContaUpdateCommand request, CancellationToken cancellationToken)
+        public async Task<ContaQuery> Handle(ContaUpdateCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var conta = _contaDomainService.GetById(request.Id.Value);
+            conta.Numero = request.Numero;
+            conta.Valor = request.Valor;
+            conta.Tipo = request.Tipo;
+            conta.EstaPaga = request.EstaPaga;
+            conta.DataVencimento = request.DataVencimento;
+
+            _contaDomainService.Update(conta);
+
+            var contaQuery = _mapper.Map<ContaQuery>(conta);
+
+            return contaQuery;
         }
 
-        public Task<ContaQuery> Handle(ContaDeleteCommand request, CancellationToken cancellationToken)
+        public async Task<ContaQuery> Handle(ContaDeleteCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
