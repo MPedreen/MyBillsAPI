@@ -7,8 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\WeatherForecastController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyBills.Application\MyBills.Application.csproj" />
+    <ProjectReference Include="..\MyBills.Infra.Data.SqlServer\MyBills.Infra.Data.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>
