@@ -7,6 +7,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddServices(builder.Configuration);
 builder.Services.AddAutoMapperProfiles();
+builder.Services.AddMediatR();
 
 var app = builder.Build();
 
