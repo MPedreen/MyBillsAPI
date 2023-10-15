@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCorsPolicy();
 builder.Services.AddServices(builder.Configuration);
 builder.Services.AddAutoMapperProfiles();
 builder.Services.AddMediatR();
